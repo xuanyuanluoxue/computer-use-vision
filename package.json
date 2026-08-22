@@ -1,6 +1,6 @@
 {
   "name": "dsh-computer-use-vision",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Windows computer-use capability for DeepSeek Harness: screenshot → vision model → simulated mouse/keyboard input, with self-evolving knowledge base.",
   "type": "module",
   "main": "lib/types/index.js",
