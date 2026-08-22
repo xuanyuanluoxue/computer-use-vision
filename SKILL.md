@@ -2,6 +2,9 @@
 name: computer-use-vision
 description: >-
   让无多模态能力的 Agent 在 Windows 上"看屏幕 + 模拟鼠标键盘操作"。
+# 源码出处: wimi321/windows-computer-use-skill (https://github.com/wimi321/windows-computer-use-skill)
+# 原项目 name: computer-use-windows, version: 0.1.1, MIT License
+# 本版本为 DSH 插件适配版，新增工具层 + 双模式支持
   通过 computer-see（截图+识图）→ computer-click / computer-type / computer-key（模拟操作）闭环。
   内置自进化应用技巧库（knowledge/）：操作前查应用技巧，快捷键优先，用后自动沉淀经验。
   适用于文件操作、UI 自动化、界面验证等场景。

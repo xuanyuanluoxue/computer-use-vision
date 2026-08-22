@@ -1,5 +1,5 @@
-url: https://github.com/YOUR_GITHUB_USERNAME/computer-use-vision
-name: YOUR_GITHUB_USERNAME/computer-use-vision
+url: https://github.com/xuanyuanluoxue/computer-use-vision
+name: xuanyuanluoxue/computer-use-vision
 category: automation
 description:
   en: Windows computer-use capability for DSH: screenshot → vision model → simulated mouse/keyboard with self-evolving knowledge base. Dual-mode plugin tools + skill-only pwsh fallback.

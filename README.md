@@ -8,6 +8,24 @@
 2. **操作电脑**：SendInput 模拟鼠标点击/拖拽、键盘快捷键/文字输入
 3. **越用越聪明**：内置自进化应用技巧库（`knowledge/`），每次使用后沉淀新快捷键、新坑位、新解法
 
+## 出处与致谢
+
+本插件的 **Skill 层源代码**（SKILL.md、scripts/、knowledge/）取自：
+
+> **[wimi321/windows-computer-use-skill](https://github.com/wimi321/windows-computer-use-skill)**
+> 一个面向 Windows 的顶级 computer-use skill，内置独立 runtime 与 MCP server。
+> 原项目采用 MIT 许可。
+
+本插件在此基础上做了以下改动：
+
+- **适配 DSH 插件体系**：将 skill 内容封装为 `ctx.skills.register()` 注册，新增 `defineTool` 工具层（computer-see/click/rightclick/drag/type/key/scroll/knowledge）
+- **双模式支持**：插件模式（工具注册）+ 纯 skill 模式（pwsh 回退）
+- **ESM/CJS 兼容修复**：`assets/scripts/package.json` 强制 `vision.js` 按 CommonJS 加载，解决 DSH 仓库内 `"type": "module"` 导致的 `require is not defined` 问题
+- **自进化知识库保留**：knowledge/ 目录原样保留，agent 操作后可继续沉淀经验
+- **DSH bundle manifest**：添加 `dsh.bundle` + `cordis.patch.yml`，支持 `dsh plugin add` 一键安装
+
+感谢 [wimi321](https://github.com/wimi321) 的原始工作。
+
 ## 架构
 
 本插件遵循 DSH 的 **skill + tool 混合形态**：
@@ -55,7 +73,7 @@
 
 ```yaml
 plugins:
-  - name: computer-use
+  - name: dsh-computer-use-vision
     config:
       visionBaseUrl: "https://dashscope.aliyuncs.com/compatible-mode/v1"  # OpenAI 兼容端点
       visionModel: "qwen-vl-max"        # 任意 OpenAI 兼容 vision 模型
@@ -86,7 +104,7 @@ pnpm dsh web --patch ./packages/shell/computer-use/cordis.patch.yml
 
 ```bash
 # 打包后安装到 profile
-dsh plugin add D:\code\ai\computer-use-vision --profile default
+dsh plugin add dsh-computer-use-vision --profile default
 ```
 
 ### 方式三：纯 Skill 模式（无需插件）
@@ -148,7 +166,7 @@ pnpm run build      # tsc -b
 ```
 computer-use-vision/
 ├── README.md                # 本文件
-├── package.json             # @deepseek-ai/dsh-computer-use（含 dsh.bundle）
+├── package.json             # dsh-computer-use-vision（含 dsh.bundle）
 ├── cordis.patch.yml         # DSH bundle 插件行声明
 ├── tsconfig.json            # 继承 DSH tsconfig.base.json
 ├── SKILL.md                 # 双模式技能指令（插件工具 + pwsh 回退）
@@ -178,3 +196,5 @@ computer-use-vision/
 ## 许可
 
 MIT —— 详见 [LICENSE](LICENSE)。
+
+Skill 层源代码（scripts/、knowledge/、SKILL.md）取自 [wimi321/windows-computer-use-skill](https://github.com/wimi321/windows-computer-use-skill)，原项目同为 MIT 许可。
