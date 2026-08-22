@@ -1,0 +1,13 @@
+# computer-use-vision: Windows screen observation + simulated input.
+# Registers 8 tools (computer-see/click/rightclick/drag/type/key/scroll/knowledge)
+# and the computer-use-vision skill (workflow + self-evolution protocol).
+
+- insert:
+    - id: computer-use
+      name: 'dsh-computer-use-vision'
+      config:
+        visionBaseUrl: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+        visionModel: "qwen-vl-max"
+        visionApiKey: ""
+        visionTimeoutMs: 30000
+        commandTimeoutMs: 10000

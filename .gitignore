@@ -1,0 +1,5 @@
+*.png
+.env
+debug.log
+.tmp/
+.DS_Store
